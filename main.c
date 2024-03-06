@@ -15,14 +15,21 @@ typedef struct Player{
 
 
 int main(void) {
+    //init
     const int screenWidth = 800;
     const int screenHeight = 640;
     InitWindow(screenWidth, screenHeight, "FishBro's Revenge");
 
-    Player player = {0}; //initializes player with all vars set to 0
+    Texture2D texPlayer = LoadTexture("resources/fishbrotest.png");
+
+    Player player = {0}; //initializes Player struct with all vars set to 0
 
     int gamepad = 0; //dunno what it does actually but makes gamepad work lol
-    GameScreen screen = TITLE; // sets the screen to totle screen
+    GameScreen screen = GAMEPLAY; // sets the screen to title screen
+
+
+
+
     while (!WindowShouldClose()) {
         switch (screen) {
 
@@ -62,6 +69,8 @@ int main(void) {
             case GAMEPLAY: {
 
 
+
+
             }
                 break;
 
@@ -71,8 +80,7 @@ int main(void) {
             }
                 break;
 
-            default:
-                break;
+
         }
         // End of Switch (screen)
         EndDrawing();

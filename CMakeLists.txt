@@ -19,3 +19,4 @@ target_link_libraries(FishTest
         raylib
 )
 target_include_directories(FishTest PUBLIC "${raylib_SOURCE_DIR}/src")
+file(COPY resources DESTINATION ${CMAKE_BINARY_DIR})
