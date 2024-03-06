@@ -20,12 +20,13 @@ int main(void) {
     const int screenHeight = 640;
     InitWindow(screenWidth, screenHeight, "FishBro's Revenge");
 
-    Texture2D texPlayer = LoadTexture("resources/fishbrotest.png");
+    //Texture2D texPlayer = LoadTexture("resources/fishbrotest.png");
+    Texture2D texLogo = LoadTexture("resources/titletest.png");
 
     Player player = {0}; //initializes Player struct with all vars set to 0
 
     int gamepad = 0; //dunno what it does actually but makes gamepad work lol
-    GameScreen screen = GAMEPLAY; // sets the screen to title screen
+    GameScreen screen = TITLE; // sets the screen to title screen
 
 
 
@@ -62,8 +63,19 @@ int main(void) {
 
             case TITLE: {
 
+                ClearBackground(PURPLE);
 
+                // Calculate the position to draw the texture at the center of the screen
+                int texWidth = texLogo.width;
+                int texHeight = texLogo.height;
+                int posX = (screenWidth - texWidth) / 2;
+                int posY = (screenHeight - texHeight) / 2;
+
+                DrawTexture(texLogo, posX, posY, WHITE);
             }
+
+
+
                 break;
 
             case GAMEPLAY: {
@@ -77,14 +89,15 @@ int main(void) {
             case GAME_OVER: {
 
 
-            }
-                break;
+            } break;
+            default: break;
 
 
         }
-        // End of Switch (screen)
-        EndDrawing();
+
     }
+    // End of Switch (screen)
+    EndDrawing();
     //deinitialize
     //unload resources
     CloseWindow();
